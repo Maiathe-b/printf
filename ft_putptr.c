@@ -6,20 +6,11 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:54:55 by jomaia            #+#    #+#             */
-/*   Updated: 2025/05/03 15:21:19 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/05/06 05:47:43 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-
-int	ft_validcheck(size_t n)
-{
-	if(!n)
-	{
-		write(1, "(nil)", 5);
-		return (5);
-	}
-}
+#include "ft_printf.h"
 
 static int	ft_putptr(size_t n)
 {
@@ -33,4 +24,14 @@ static int	ft_putptr(size_t n)
 	}
 	i += ft_putchar(hex[n % 16]);
 	return (i);
+}
+
+int	ft_validcheck(size_t n)
+{
+	if(!n)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
+	return(ft_putstr("0x") + ft_putptr(n));
 }

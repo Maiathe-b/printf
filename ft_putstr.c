@@ -6,21 +6,26 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 11:56:31 by jomaia            #+#    #+#             */
-/*   Updated: 2025/05/03 12:06:41 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/05/06 05:47:48 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putstr(char *s)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < ft_strlen(s))
+	if(!s)
 	{
-		write(1, &s[i], 1);
+		write(1, "(null)", 6);
+		return (6);
+	}
+	while(s[i])
+	{
+		ft_putchar(s[i]);
 		i++;
 	}
-	return (1);
+	return(i);
 }

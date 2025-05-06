@@ -6,11 +6,11 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 11:59:31 by jomaia            #+#    #+#             */
-/*   Updated: 2025/05/03 12:04:29 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/05/06 05:47:26 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putchar(int c)
 {
