@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_unsputnbr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 11:56:25 by joaomaia          #+#    #+#             */
-/*   Updated: 2025/05/03 15:35:47 by jomaia           ###   ########.fr       */
+/*   Created: 2025/05/03 12:06:10 by jomaia            #+#    #+#             */
+/*   Updated: 2025/05/03 12:09:40 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <stdarg.h>
+int	ft_unsputnbr(unsigned long n)
+{
+	int	i;
 
-int	ft_putchar(int c);
-int	ft_putstr(char *str);
-int	ft_putnbr(long n);
-int	ft_unsputnbr(unsigned long n);
-int ft_puthex(unsigned int n, unsigned char c);
-
-#endif
+	i = 0;
+	if (n >= 10)
+		{
+			i += ft_putnbr_fd(n / 10);
+			i += ft_putnbr_fd(n % 10);
+		}
+		else
+			i += ft_putchar_fd(n + '0');
+	return (i);
+}

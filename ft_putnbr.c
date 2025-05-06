@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 11:56:25 by joaomaia          #+#    #+#             */
-/*   Updated: 2025/05/03 15:35:47 by jomaia           ###   ########.fr       */
+/*   Created: 2025/05/03 11:48:55 by jomaia            #+#    #+#             */
+/*   Updated: 2025/05/03 12:07:27 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "printf.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <stdarg.h>
-
-int	ft_putchar(int c);
-int	ft_putstr(char *str);
-int	ft_putnbr(long n);
-int	ft_unsputnbr(unsigned long n);
-int ft_puthex(unsigned int n, unsigned char c);
-
-#endif
+int	ft_putnbr(long n)
+{
+	if (n == -2147483648)
+	{
+		ft_putchar_fd('-');
+		ft_putchar_fd('2');
+		ft_putnbr_fd(147483648);
+	}
+	else
+	{
+		if (n < 0)
+		{
+			ft_putchar_fd('-');
+			n = -n;
+		}
+		if (n >= 10)
+		{
+			ft_putnbr_fd(n / 10);
+			ft_putnbr_fd(n % 10);
+		}
+		else
+			ft_putchar_fd(n + '0');
+	}
+	return (1);
+}

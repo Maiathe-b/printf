@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 11:56:25 by joaomaia          #+#    #+#             */
-/*   Updated: 2025/05/03 15:35:47 by jomaia           ###   ########.fr       */
+/*   Created: 2025/05/03 11:56:31 by jomaia            #+#    #+#             */
+/*   Updated: 2025/05/03 12:06:41 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <stdarg.h>
+int	ft_putstr(char *s)
+{
+	size_t	i;
 
-int	ft_putchar(int c);
-int	ft_putstr(char *str);
-int	ft_putnbr(long n);
-int	ft_unsputnbr(unsigned long n);
-int ft_puthex(unsigned int n, unsigned char c);
-
-#endif
+	i = 0;
+	while (i < ft_strlen(s))
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
+	return (1);
+}

@@ -1,0 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/03 15:29:02 by jomaia            #+#    #+#             */
+/*   Updated: 2025/05/03 15:38:27 by jomaia           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libftprintf.h"
+
+static int	ft_printvar(char const c, va_list ap)
+{
+	int	i;
+
+	i = 0;
+	if (c == 'c')
+		i += ft_putchar(va_arg(ap, int));
+	else if(c == 's')
+		i += ft_putstr(va_arg(ap, char *));
+	else if(c == 'p')
+		i += ft_adress(va_arg(ap, size_t));
+	else if(c == 'd' || c == 'i')
+		i += ft_putnbr(va_arg(ap, int));
+	else if(c == 'u')
+		i += ft_unsputnbr(va_arg(ap, unsigned int));
+	else if(c == 'x' || 'X')
+		i += ft_puthex(va_arg(ap, unsigned int), c);
+	else if(c == '%')
+		i += ft_putchar('%');
+	return (i);
+}
+
+int	ft_printf(const char *format, ...)
+{
+	va_list	arg;
+	i = 0;
+}
