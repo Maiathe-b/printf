@@ -6,13 +6,10 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 11:48:55 by jomaia            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2025/05/06 06:18:59 by jomaia           ###   ########.fr       */
-=======
-/*   Updated: 2025/05/06 05:59:56 by jomaia           ###   ########.fr       */
->>>>>>> 5d5c59b (printf finished and tested)
+/*   Updated: 2025/05/07 15:42:20 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "ft_printf.h"
 
