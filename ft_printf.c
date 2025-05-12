@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 15:29:02 by jomaia            #+#    #+#             */
-/*   Updated: 2025/05/06 05:47:11 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/05/12 14:39:41 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,20 @@ static int	ft_printvar(char const c, va_list ap)
 	i = 0;
 	if (c == 'c')
 		i += ft_putchar(va_arg(ap, int));
-	else if(c == 's')
+	else if (c == 's')
 		i += ft_putstr(va_arg(ap, char *));
-	else if(c == 'p')
+	else if (c == 'p')
 		i += ft_validcheck(va_arg(ap, size_t));
-	else if(c == 'd' || c == 'i')
+	else if (c == 'd' || c == 'i')
 		i += ft_putnbr(va_arg(ap, int));
-	else if(c == 'u')
+	else if (c == 'u')
 		i += ft_unsputnbr(va_arg(ap, unsigned int));
-	else if(c == 'x' || c == 'X')
+	else if (c == 'x' || c == 'X')
 		i += ft_puthex(va_arg(ap, unsigned int), c);
-	else if(c == '%')
+	else if (c == '%')
 		i += ft_putchar('%');
+	else
+		i = -1;
 	return (i);
 }
 
@@ -43,9 +45,9 @@ int	ft_printf(const char *format, ...)
 	i = 0;
 	res = 0;
 	va_start(arg, format);
-	if(!format || (format[0] == '%' && format[1] == '\0'))
+	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-	while(format[i])
+	while (format[i])
 	{
 		if (format[i] == '%')
 		{

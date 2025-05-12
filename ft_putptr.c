@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:54:55 by jomaia            #+#    #+#             */
-/*   Updated: 2025/05/06 05:47:43 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/05/12 14:41:35 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ static int	ft_putptr(size_t n)
 
 int	ft_validcheck(size_t n)
 {
-	if(!n)
+	if (!n)
 	{
 		write(1, "(nil)", 5);
 		return (5);
 	}
-	return(ft_putstr("0x") + ft_putptr(n));
+	return (ft_putstr("0x") + ft_putptr(n));
 }

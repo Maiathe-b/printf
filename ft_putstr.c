@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 11:56:31 by jomaia            #+#    #+#             */
-/*   Updated: 2025/05/06 05:47:48 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/05/12 14:41:52 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ int	ft_putstr(char *s)
 	size_t	i;
 
 	i = 0;
-	if(!s)
+	if (!s)
 	{
 		write(1, "(null)", 6);
 		return (6);
 	}
-	while(s[i])
+	while (s[i])
 	{
 		ft_putchar(s[i]);
 		i++;
 	}
-	return(i);
+	return (i);
 }
