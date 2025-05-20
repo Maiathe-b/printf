@@ -6,41 +6,37 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 15:29:02 by jomaia            #+#    #+#             */
-/*   Updated: 2025/05/12 14:39:41 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/05/20 15:24:05 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_printvar(char const c, va_list ap)
+static void	ft_printvar(char const c, va_list ap, int *res)
 {
-	int	i;
-
-	i = 0;
 	if (c == 'c')
-		i += ft_putchar(va_arg(ap, int));
+		*res += ft_putchar(va_arg(ap, int));
 	else if (c == 's')
-		i += ft_putstr(va_arg(ap, char *));
+		*res += ft_putstr(va_arg(ap, char *));
 	else if (c == 'p')
-		i += ft_validcheck(va_arg(ap, size_t));
+		*res += ft_validcheck(va_arg(ap, size_t));
 	else if (c == 'd' || c == 'i')
-		i += ft_putnbr(va_arg(ap, int));
+		*res += ft_putnbr(va_arg(ap, int));
 	else if (c == 'u')
-		i += ft_unsputnbr(va_arg(ap, unsigned int));
+		*res += ft_unsputnbr(va_arg(ap, unsigned int));
 	else if (c == 'x' || c == 'X')
-		i += ft_puthex(va_arg(ap, unsigned int), c);
+		*res += ft_puthex(va_arg(ap, unsigned int), c);
 	else if (c == '%')
-		i += ft_putchar('%');
+		*res += ft_putchar('%');
 	else
-		i = -1;
-	return (i);
+		*res = -1;
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	arg;
-	size_t	i;
-	size_t	res;
+	int	i;
+	int	res;
 
 	i = 0;
 	res = 0;
@@ -51,11 +47,13 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			res += ft_printvar(format[i + 1], arg);
+			ft_printvar(format[i + 1], arg, &res);
 			i++;
 		}
 		else
 			res += ft_putchar(format[i]);
+		if (res == -1)
+			break;
 		i++;
 	}
 	va_end (arg);
